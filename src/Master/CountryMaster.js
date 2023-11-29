@@ -2,17 +2,13 @@ import { Card } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-//import Swal from "sweetalert2";
-//import '../assets/scss/_themes-vars.module.scss'
 import "../assets/scss/master.scss";
 import AllServices from "services/AllServices";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
-
-
 import React from "react";
 import swal from "sweetalert";
+
 const services = new AllServices();
 const CountryMaster = () => {
   const {
@@ -26,15 +22,14 @@ const CountryMaster = () => {
   console.log(errors);
   const onSubmit = async (values) => {
     console.log(values);
-   var data=await services.CreateCountrymast(values)
-   console.log(data)
+    var data = await services.CreateCountrymast(values);
+    console.log(data);
     if (data.data.isSuccess) {
       swal({
         icon: "success",
         title: "Country Master Inserted Successfully",
         text: `Now Click Ok`,
       }).then((value) => {
-        // navigate("/Master/ViewCountryMaster");
         window.location.reload(false);
       });
     }

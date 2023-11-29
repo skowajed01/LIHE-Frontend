@@ -1,6 +1,5 @@
 import { Backdrop, CircularProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import DataTable from "layout/DataTable/DataTable";
 import React, { useEffect, useState } from "react";
 
 import AllServices from "services/AllServices";
@@ -18,14 +17,7 @@ const columns = [
     minWidth: 150,
     type: "string",
   },
-  //   {
-  //     field: "img",
-  //     headerName: "Avatar",
-  //     width: 100,
-  //     renderCell: (params) => {
-  //       return <img src={params.row.img || "/noavatar.png"} alt="" />;
-  //     },
-  //   },
+
   {
     field: "currency",
     type: "string",
@@ -44,16 +36,10 @@ const columns = [
     headerName: "Calling Code",
     minWidth: 200,
   },
-  //   {
-  //     field: "verified",
-  //     headerName: "Verified",
-  //     width: 150,
-  //     type: "boolean",
-  //   },
 ];
 
 var countryLists = [];
-//var service = new AllServices();
+
 const ViewCountryMaster = () => {
   const [isLoading, setisLoding] = useState();
   const [isError, setisError] = useState(null);
@@ -66,23 +52,14 @@ const ViewCountryMaster = () => {
   const GetCountryList = async () => {
     try {
       setisLoding(true);
-      var data=await services.ViewCountryList()
+      var data = await services.ViewCountryList();
       countryLists = data.data.result;
-      setisLoding(false); 
+      setisLoding(false);
       console.log(countryLists);
     } catch (error) {
       setisLoding(false);
       setisError(error.message);
     }
-    // service
-    //   .ViewCountryList()
-    //   .then((data) => {
-    //     countryLists = data;
-    //     console.log(data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   };
 
   var countryList = [];
