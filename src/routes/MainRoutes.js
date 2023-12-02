@@ -7,6 +7,8 @@ import Demo from "Master/Demo";
 import CountryMaster from "Master/CountryMaster";
 import ViewCountryMaster from "Master/ViewCountryMaster";
 import ModelPopUp from "layout/ModelPopUp/ModePopUp";
+import DepartmentMaster from "Master/DepartmentMaster";
+import ViewDepartmentMaster from "Master/ViewDepartmentMaster";
 // dashboard routing
 const DashboardDefault = Loadable(
   lazy(() => import("views/dashboard/Default"))
@@ -61,6 +63,14 @@ const MainRoutes = {
         {
           path: "ViewCountryMaster",
           element: <ViewCountryMaster />,
+        },
+        {
+          path: "DepartmentMaster",
+          element: <DepartmentMaster />,
+        },
+        {
+          path: "ViewDepartmentMaster",
+          element: <ViewDepartmentMaster />,
         },
         {
           path: "popup",
